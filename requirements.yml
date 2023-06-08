@@ -1,0 +1,10 @@
+---
+collections:
+  - name: awx.awx
+# version: <acceptable version range of the collection>
+# source: <URL of Galaxy server or private automation hub>
+  - name: amazon.aws
+  - name: infra.aap_utilities
+  - name: infra.ee_utilities
+  - name: containers.podman
+ 
