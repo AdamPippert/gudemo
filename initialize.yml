@@ -1,0 +1,20 @@
+---
+- name: perform setup tasks for AAP credentials, OCP credentials, and S3 initialization
+  hosts: localhost
+
+  tasks:
+  - name: ensure a creds.yml file exists with AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY defined
+    ansible.builtin.file:
+      state: present
+    register: build_creds
+
+  - name: notify that creds.yml file has been created, but needs to be populated
+    ansible.builtin.debug:
+      msg: "creds.yml file has been create, but needs to be populated with values before continuing."
+    when: build_creds.changed
+
+  - name: install OpenShift Data Foundations operator to host s3
+    openshift. 
+	
+  - name: carve out s3 bucket for Automation Hub
+    amazon.aws.s3_ 
