@@ -7,4 +7,14 @@ collections:
   - name: infra.aap_utilities
   - name: infra.ee_utilities
   - name: containers.podman
- 
+  - name: ansible.builtin
+  - name: ansible.posix
+  - name: ansible.network
+  - name: google.cloud
+  - name: azure.azcollection
+  - name: redhat.openshift
+  - name: redhat.sso
+  - name: redhat.eap
+  - name: redhat.scm
+  - name: ansible.controller
+  - name: ansible.windows 
