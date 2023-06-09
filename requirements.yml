@@ -8,6 +8,7 @@ collections:
   - name: infra.ee_utilities
   - name: containers.podman
   - name: ansible.builtin
+  - name: ansible.utils
   - name: ansible.posix
   - name: ansible.network
   - name: google.cloud
@@ -15,6 +16,19 @@ collections:
   - name: redhat.openshift
   - name: redhat.sso
   - name: redhat.eap
+  - name: redhat.data_grid
+  - name: redhat.amq_broker
   - name: redhat.scm
   - name: ansible.controller
-  - name: ansible.windows 
+  - name: ansible.windows
+  - name: cloud.terraform
+  - name: kubernetes.core
+  - name: redhat.jws
+  - name: redhat.jbcs
+  - name: redhat.rhel_idm
+  - name: redhat.rhel_system_roles
+  - name: redhat.runtimes_common
+  - name: redhat.satellite
+  - name: redhat.satellite_operations
+  - name: servicenow.itsm
+  - name: vmware.vmware_rest 
