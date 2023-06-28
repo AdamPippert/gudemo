@@ -17,4 +17,6 @@
     openshift. 
 	
   - name: carve out s3 bucket for Automation Hub
-    amazon.aws.s3_ 
+    amazon.aws.s3_bucket:
+      access_key: {{ aws_access_key_id }}
+      acl: public-read-write 
