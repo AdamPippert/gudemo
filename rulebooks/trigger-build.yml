@@ -1,0 +1,20 @@
+---
+- name: Trigger building the demo based on existence of email to populate credentials
+  hosts: localhost
+
+  sources:
+  - ansible.eda.email:
+  - ansible.eda.file:
+     
+  rules:
+    - name: populate creds.yml
+      contains: email.subject == "has completed"
+      actions:
+        playbook: populate-creds.yml
+
+
+    - name: trigger demo build on OCP
+      file: creds.yml
+        state: exists
+      actions:
+        playbook: initialize.yml

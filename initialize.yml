@@ -7,12 +7,6 @@
     ansible.builtin.file:
       path: creds.yml
       state: present
-    register: build_creds
-
-  - name: notify that creds.yml file has been created, but needs to be populated
-    ansible.builtin.debug:
-      msg: "creds.yml file has been create, but needs to be populated with values before continuing."
-    when: build_creds.changed
 
   - name: install OpenShift Data Foundations operator to host s3
     ansible.builtin.command: oc apply -f files/ODF-operator/sub.yml
