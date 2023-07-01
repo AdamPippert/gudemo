@@ -5,6 +5,7 @@
   tasks:
   - name: ensure a creds.yml file exists with AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY defined
     ansible.builtin.file:
+      path: creds.yml
       state: present
     register: build_creds
 
@@ -14,7 +15,8 @@
     when: build_creds.changed
 
   - name: install OpenShift Data Foundations operator to host s3
-    openshift. 
+    ansible.builtin.command: oc apply -f files/sub.yml
+       
 	
   - name: carve out s3 bucket for Automation Hub
     amazon.aws.s3_bucket:
