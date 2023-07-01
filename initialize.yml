@@ -15,10 +15,13 @@
     when: build_creds.changed
 
   - name: install OpenShift Data Foundations operator to host s3
-    ansible.builtin.command: oc apply -f files/sub.yml
+    ansible.builtin.command: oc apply -f files/ODF-operator/sub.yml
        
 	
   - name: carve out s3 bucket for Automation Hub
     amazon.aws.s3_bucket:
       access_key: {{ aws_access_key_id }}
-      acl: public-read-write 
+      acl: public-read-write
+
+ - name: install AAP operator
+   ansible.builtin.command: oc apply -f files/AAP-operator/sub.yml 
