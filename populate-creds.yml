@@ -1,0 +1,16 @@
+---
+- name: populate credentials from email text
+  hosts: localhost
+
+  tasks:
+  - name: parse email for AWS credentials
+    ansible.builtin.regex:
+
+  - name: parse email for sandbox url
+    ansible.builtin.regex:
+
+  - name: parse email for OCP login credentials
+    ansible.builtin.regex:
+
+  - name: populate AAP admin login values
+    ansible.builtin.vault:
