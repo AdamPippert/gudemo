@@ -23,5 +23,17 @@
       access_key: {{ aws_access_key_id }}
       acl: public-read-write
 
- - name: install AAP operator
-   ansible.builtin.command: oc apply -f files/AAP-operator/sub.yml 
+  - name: install AAP operator
+    ansible.builtin.command: oc apply -f files/AAP-operator/sub.yml 
+
+  - name: set up Automation Controller
+    ansible.builtin.command: oc apply -f files/AAP-operator/AutomationController/file.yml
+
+  - name: set up Automation Hub
+    ansible.builtin.command: oc apply -f files/AAP-operator/AutomationHub/file.yml
+
+  - name: set up EDA Controller
+    ansible.builtin.command: oc apply -f files/AAP-operator/EDA/file.yml
+
+  - name: set up RHODS Operator
+    ansible.builtin.command: oc apply -f files/RHODS-operator/sub.yml
