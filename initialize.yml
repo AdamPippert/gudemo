@@ -8,6 +8,13 @@
       path: creds.yml
       state: present
 
+  - name: install prerequisite operators with Helm
+    community.kubernetes.helm:
+      name: test
+      chart_ref: files/operators-installer/Chart.yaml
+      release_namespace: gudemo
+      wait: true # waits until all services are up with minimal config to mark successful
+
   - name: install OpenShift Data Foundations operator to host s3
     ansible.builtin.command: oc apply -f files/ODF-operator/sub.yml
        
