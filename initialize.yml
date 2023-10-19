@@ -28,13 +28,13 @@
     ansible.builtin.command: oc apply -f files/AAP-operator/sub.yml 
 
   - name: set up Automation Controller
-    ansible.builtin.command: oc apply -f files/AAP-operator/AutomationController/file.yml
+    ansible.builtin.command: oc apply -f files/AAP-operator/AutomationController/automationcontroller-example.yml
 
   - name: set up Automation Hub
-    ansible.builtin.command: oc apply -f files/AAP-operator/AutomationHub/file.yml
+    ansible.builtin.command: oc apply -f files/AAP-operator/AutomationHub/automationhub-example.yml
 
   - name: set up EDA Controller
-    ansible.builtin.command: oc apply -f files/AAP-operator/EDA/file.yml
+    ansible.builtin.command: oc apply -f files/AAP-operator/EDA/edacontroller-example.yml
 
   - name: set up RHODS Operator
-    ansible.builtin.command: oc apply -f files/RHODS-operator/sub.yml
+      ansible.builtin.command: oc apply -f files/RHODS-operator/sub.yml
