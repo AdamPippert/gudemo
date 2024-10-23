@@ -37,4 +37,7 @@
     ansible.builtin.command: oc apply -f files/AAP-operator/EDA/edacontroller-example.yml
 
   - name: set up RHODS Operator
-      ansible.builtin.command: oc apply -f files/RHODS-operator/sub.yml
+    ansible.builtin.command: oc apply -f files/RHODS-operator/sub.yml
+
+  - name: set up workloads on the platform
+    ansible.builtin.command: oc apply -f /files/workload/workload.yml
