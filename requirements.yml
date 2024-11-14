@@ -31,4 +31,3 @@ collections:
   - name: redhat.satellite
   - name: redhat.satellite_operations
   - name: servicenow.itsm
-  - name: vmware.vmware_rest 
