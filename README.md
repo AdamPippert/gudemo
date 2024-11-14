@@ -1,10 +1,8 @@
 gudemo - a Grand Unified Demo environment for intelligent application and infrastructure automation
 
-** NOTICE: work on this repo is suspended until after March 1st due to some internal product and environment changes forthcoming
-
 What is this, exactly?
 
-This is a demo environment I built for my own personal use.  Today, this environment relies on a platform at Red Hat available for partners and employees that carves out a VPC in AWS and deploys an OpenShift cluster automatically.  This repo contains an Ansible collection that utilizes that pre-built environment and deploys the Ansible Automation Platform operator, an Ansible Automation Controller in the aap namespace, and an Ansible Automation Hub instance with S3 storage.  Future work on this project will include deploying Red Hat OpenShift AI and Ansible Event Driven Automation (the EDA Controller component) as EDA becomes generally available.
+This is a demo environment I built for my own personal use.  Today, this environment relies on a platform at Red Hat available for partners and employees that carves out a VPC in AWS and deploys an OpenShift cluster automatically.  This repo contains an Ansible collection that utilizes that pre-built environment and deploys the Ansible Automation Platform operator, an Ansible Automation Controller in the aap namespace, and an Ansible Automation Hub instance with S3 storage.  Future work on this project will include deploying Red Hat OpenShift AI and migrating the install to AAP >= v2.5 with new unified UI and terminology.
 
 Requirements:
 - An OpenShift cluster provisioned on AWS
@@ -29,6 +27,7 @@ A Containerfile (in context/Containerfile) for building an Execution Environment
 
 - awx.awx
 - amazon.aws
+- itsm.servicenow
 - infra.aap_utilities
 - infra.ee_utilities
 - containers.podman 
