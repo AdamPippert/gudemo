@@ -1,0 +1,21 @@
+apiVersion: rhods.redhat.com/v1
+kind: RhodsInstance
+metadata:
+  name: rhods
+  namespace: redhat-ods-operator
+spec:
+  enablement: true
+  notebooks:
+    enabled: true
+    pvcSize: 20Gi
+  pipelines:
+    enabled: true
+  dashboard:
+    enabled: true
+  storage:
+    class: gp3-csi
+  monitoring:
+    enabled: true
+  workbenches:
+    enabled: true
+    defaultVolumeSize: 20Gi

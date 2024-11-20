@@ -1,5 +1,5 @@
 ---
-- name: perform setup tasks for AAP credentials, OCP credentials, and S3 initialization
+- name: perform setup tasks for AAP credentials, OCP credentials, S3 initialization, and OpenShift AI
   hosts: localhost
 
   tasks:
@@ -18,7 +18,6 @@
   - name: install OpenShift Data Foundations operator to host s3
     ansible.builtin.command: oc apply -f files/ODF-operator/sub.yml
        
-	
   - name: carve out s3 bucket for Automation Hub
     amazon.aws.s3_bucket:
       access_key: {{ aws_access_key_id }}
@@ -38,6 +37,34 @@
 
   - name: set up RHODS Operator
     ansible.builtin.command: oc apply -f files/RHODS-operator/sub.yml
+
+  - name: install OpenShift AI operator
+    ansible.builtin.command: oc apply -f files/RHOAI-operator/sub.yml
+    
+  - name: wait for OpenShift AI operator to be ready
+    ansible.builtin.k8s_info:
+      api_version: operators.coreos.com/v1alpha1
+      kind: ClusterServiceVersion
+      name: rhods-operator
+      namespace: openshift-operators
+    register: csv_status
+    until: csv_status.resources[0].status.phase == "Succeeded"
+    retries: 30
+    delay: 10
+
+  - name: create OpenShift AI instance
+    ansible.builtin.command: oc apply -f files/RHOAI-operator/instance.yml
+
+  - name: wait for OpenShift AI instance to be ready
+    ansible.builtin.k8s_info:
+      api_version: rhods.redhat.com/v1
+      kind: RhodsInstance
+      name: rhods
+      namespace: redhat-ods-operator
+    register: rhods_status
+    until: rhods_status.resources[0].status.phase == "Ready"
+    retries: 60
+    delay: 10
 
   - name: set up workloads on the platform
     ansible.builtin.command: oc apply -f /files/workload/workload.yml
