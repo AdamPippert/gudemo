@@ -1,0 +1,5 @@
+kubernetes>=12.0.0
+openshift>=0.12.0
+boto3>=1.26.0
+requests>=2.25.0
+cryptography>=3.4.0

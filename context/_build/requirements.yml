@@ -1,10 +1,40 @@
 ---
 collections:
   - name: awx.awx
-# version: <acceptable version range of the collection>
-# source: <URL of Galaxy server or private automation hub>
+    version: ">=21.14.0"
   - name: amazon.aws
+    version: ">=6.0.0"
   - name: infra.aap_utilities
+    version: ">=2.5.0"
   - name: infra.ee_utilities
+    version: ">=2.5.0"
   - name: containers.podman
- 
+    version: ">=1.10.1"
+  - name: ansible.utils
+    version: ">=2.10.0"
+  - name: ansible.posix
+    version: ">=1.5.4"
+  - name: ansible.network
+  - name: google.cloud
+  - name: azure.azcollection
+  - name: redhat.openshift
+    version: ">=2.3.0"
+  - name: redhat.sso
+  - name: redhat.eap
+  - name: redhat.data_grid
+  - name: redhat.amq_broker
+  - name: redhat.scm
+  - name: ansible.controller
+    version: ">=4.5.0"
+  - name: ansible.windows
+  - name: cloud.terraform
+  - name: kubernetes.core
+    version: ">=2.4.0"
+  - name: redhat.jws
+  - name: redhat.jbcs
+  - name: redhat.rhel_idm
+  - name: redhat.rhel_system_roles
+  - name: redhat.runtimes_common
+  - name: redhat.satellite
+  - name: redhat.satellite_operations
+  - name: servicenow.itsm
